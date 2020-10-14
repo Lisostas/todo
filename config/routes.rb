@@ -7,5 +7,8 @@ Rails.application.routes.draw do
     end
   end
 
-  root "todo_lists#index"
+  resources :users, only: [:index, :create]
+  resources :sessions, only: [:create]
+  root "users#index"
+  get "log_out" => "sessions#destroy"
 end
