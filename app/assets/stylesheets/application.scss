@@ -15,7 +15,7 @@
  */
 
 
- @import "bootstrap-sprockets";
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
  $white_opaque: rgba(250, 250, 250, .3);
@@ -59,7 +59,7 @@ body {
 	width: 50%;
 	max-width: 750px;
 	background: $white_opaque;
-	margin: 3em auto 0 auto;
+	margin: 14em auto 0 auto;
 	border-radius: 7px;
 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
 	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
@@ -69,7 +69,7 @@ body {
 .todo_list_title {
     text-align: center;
     font-weight: 700;
-    font-size: 1.0rem;
+    font-size: 1.0em;
     text-transform: uppercase;
     color: white;
     margin: 0;
@@ -81,7 +81,24 @@ body {
       opacity: 0.4;
      }
     }
-   }
+}
+
+.regandlog {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    color: white;
+    margin: 0;
+    a {
+     text-decoration: none;
+     color: white;
+     transition: all .4s ease-in-out;
+     &:hover {
+      opacity: 0.4;
+     }
+    }
+}
 
 .todo_list_sub_title {
 	margin: 0 0 3em 0;
@@ -179,6 +196,11 @@ body {
 	}
 }
 
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
 .forms {
 	padding: 0 5%;
 }
@@ -196,8 +218,30 @@ input[type="text"], textarea {
 	border-radius: 4px;
 	padding: 1em 2em;
 }
+input[type="email"], textarea {
+	width: 100%;
+	margin: .5em 2% 1em 0;
+	display: inline-block;
+	outline: none;
+	background: rgba(250,250,250,.4);
+	border: none;
+	height: 40px;
+	border-radius: 4px;
+	padding: 1em 2em;
+}
+input[type="password"], textarea {
+	width: 100%;
+	margin: .5em 2% 1em 0;
+	display: inline-block;
+	outline: none;
+	background: rgba(250,250,250,.4);
+	border: none;
+	height: 40px;
+	border-radius: 4px;
+	padding: 1em 2em;
+}
 textarea {
-	height: 200px;
+	height: 200px; 
 }
 input[type="submit"] {
 	background: white;
