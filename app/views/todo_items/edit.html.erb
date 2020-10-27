@@ -1,0 +1,11 @@
+<h1 class="todo_list_title">Editing Todo Item in "<%= @todo_list.title %>"</h1>
+<div class="forms">
+<%= form_with model: @todo_list, url: todo_list_todo_item_path, method: :patch, scope: @todo_item do |f| %>
+ <%= f.text_field :content, placeholder: @todo_item.content %>
+    <%= f.submit 'Update'%>
+<% end %>
+</div>
+
+<div class="links">
+<%= link_to 'Cancel', todo_list_todo_item_path %>
+</div>

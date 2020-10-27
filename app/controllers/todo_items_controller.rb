@@ -7,6 +7,26 @@ class TodoItemsController < ApplicationController
         redirect_to @todo_list
     end
 
+    def edit
+    end
+
+    def show
+    end
+
+    
+    def update 
+        respond_to do |format|
+            if @todo_item.update(todo_item_params)
+               format.html { redirect_to @todo_list, notice: 'Item was successfully updated.' }
+               format.json { render :show, status: :ok, location: @todo_list }
+            else
+               format.html { render :edit }
+               format.json { render json: @todo_list.errors, status: :unprocessable_entity }
+        
+            end
+        end
+    end
+
     def destroy
         @todo_item = @todo_list.todo_items.find(params[:id])
         if @todo_item.destroy
