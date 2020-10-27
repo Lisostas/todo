@@ -1,8 +1,4 @@
-<!--- 
-<p><%= todo_item.content %></p>
-<%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to "Mark as Complete", complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch %>
--->
+
 <div class="row clearfix">
  <% if todo_item.completed? %>
   <div class="complete">
@@ -11,7 +7,16 @@
    <% end %>
   </div>
   <div class="todo_item">
-   <p style="opacity: 0.4;"><strike><%= todo_item.content %></strike></p>
+        <p style="opacity: 0.4;">
+            <strike> <%= todo_item.content%>
+                <% if todo_item.due_date.present? %>
+                <time class="task-time <%= todo_item.due_date <= Date.today ? 'is-due' : '' %>" datetime="<%= todo_item.due_date.strftime('%FT%T') %>">
+                    <%= todo_item.due_date.strftime("%m/%d") %>
+                </time> 
+                <% end %>
+        </strike>
+        </P>
+        
   </div>
     <div class="trash">
    <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item.id), method: :get do %>
@@ -30,8 +35,17 @@
    <% end %>
   </div>
   <div class="todo_item">
-   <p><%= todo_item.content %></p>
-  </div>
+        <div class="priority_<%=todo_item.priority%>">
+                <%= todo_item.content %>
+                <% if todo_item.due_date.present? %>
+                <time class="task-time <%= todo_item.due_date <= Date.today ? 'is-due' : '' %>" datetime="<%= todo_item.due_date.strftime('%FT%T') %>">
+                    <%= todo_item.due_date.strftime("%m/%d") %>
+                    
+                </time>
+            
+                <% end %>
+            </div>
+    </div>
     <div class="trash">
    <%= link_to edit_todo_list_todo_item_path(@todo_list, todo_item.id), method: :get do %>
     <i class="fa fa-pencil"></i>
